@@ -31,6 +31,7 @@ ggplot_acf_pacf= function(res_, lag, label, alpha= 0.05){
 }
 
 graf_ts = function(ts,
+                   salida=1,
                    tiempo=NULL,
                    namex=NULL,
                    namey=NULL,
@@ -65,13 +66,11 @@ graf_ts = function(ts,
   if(org==1){plot = plot_grid(g1,g2,g3,ncol=3,nrow = 1)}
   
   if(org==2){plot = plot_grid(g1,g2,g3,ncol=1,nrow = 3)}
-  return(plot)
+  
+  if(salida==1){return(plot)}
+  if(salida==2){return(g1)}
+  if(salida==3){return(g2)}
+  if(salida==4){return(g3)}
+
 }
-
-x11()
-graf_ts(serie)
-
-graf_ts(serie_t)
-
-graf_ts(dts)
 
